@@ -1,0 +1,29 @@
+.racecourse {
+    /* background: #ebe4e3; */
+    background-image: url(images/bg.png);
+    background-repeat: repeat;
+    width: 100%;
+    height: 100vh;
+    background-position-x: 0;
+}
+
+.animal {
+    position: absolute;
+    width: 96px;
+    height: 60px;
+    display: block;
+    background-position: 0px -320px;
+    animation: run steps(1) 0.5s infinite;
+}
+
+@keyframes run {
+
+    0%,
+    100% {
+        background-position: 0px -320px;
+    }
+
+    50% {
+        background-position: 0px -512px;
+    }
+}
