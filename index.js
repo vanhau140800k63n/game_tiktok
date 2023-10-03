@@ -1,38 +1,60 @@
-function Animal(id, x, y, image) {
-    this.element = $('#' + id);
+function Animal(id, x, y) {
+    this.element = $('#animal_' + id);
     this.speed = 10;
-    this.image = image;
-    this.originX = x;
-    this.originY = y;
     this.x = x;
     this.y = y;
+    this.author = '';
 
     this.run = function () {
-        var horse = this;
-        horse.element.css('top', y);
-        horse.element.css('background-image', 'url(' + image + ')');
-        // setTimeout(function () {
-        //     horse.x++;
-        //     horse.element.style.left = horse.x + 'vw';
-        // }, 1000 / this.speed);
+        var animal = this;
+        console.log(animal.element);
+        animal.element.css('top', y + 'px');
+        animal.element.append('<div class="name">aaa</div>')
+    }
+
+    this.setAction = function (key) {
+        var animal = this;
+        if (this.speed - speed_road > 0) {
+            this.x += (this.speed - speed_road);
+            animal.element.css('left', this.x + 'px');
+        }
     }
 }
 
-var list = [];
-for (i = 1; i < 5; ++i) {
-    $('.racecourse').append('<div class="animal" id="' + i + '"></div>');
-    list.push(new Animal(i, 0, 50 * i, 'images/horse' + i + '.png'));
+var animals = [];
+for (i = 1; i <= 5; ++i) {
+    $('.mud').append('<div class="animal_gif" id="animal_' + i + '"><img  src="animal_img/animal' + i + '.gif"> </div>');
+    animals.push(new Animal(i, 500, i * 60));
 }
 
-console.log(list);
-
-list.forEach(element => {
+animals.forEach(element => {
     element.run();
 });
 
-x = 0;
+var speed_road = 10;
+var index_road = 0
+var finish_line_length = 3000;
+
+var actions = [];
 
 setInterval(function () {
-    $('.racecourse').css('background-position-x', x + 'px');
-    x -= 10
+    // $('.racecourse').css('background-position-x', index_road + 'px');
+    $('.mud').css('background-position-x', index_road + 'px');
+    $('.finish_line').css('left', finish_line_length + 'px');
+    finish_line_length -= speed_road;
+    index_road -= speed_road;
+
+    animals[0].setAction();
+    // animals.forEach(element => {
+    //     element.setAction();
+    // });
 }, 100);
+
+$(document).keypress(function (event) {
+    animal_id = parseInt(event.key);
+    animals[animal_id - 1].speed += 1;
+});
+
+for (i = 1; i <= 20; ++i) {
+    $('.list_pet').append('<img class="pet_show" src="animal_img/animal' + i + '.gif">');
+}
