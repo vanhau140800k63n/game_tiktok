@@ -14,6 +14,9 @@ function Animal(id, x, y) {
 
     this.setAction = function (key) {
         var animal = this;
+        if(this.x + 50 > finish_line_length) {
+            clearInterval(gameRunning)
+        }
         if (this.speed - speed_road > 0) {
             this.x += (this.speed - speed_road);
             animal.element.css('left', this.x + 'px');
@@ -37,17 +40,15 @@ var finish_line_length = 3000;
 
 var actions = [];
 
-setInterval(function () {
-    // $('.racecourse').css('background-position-x', index_road + 'px');
+var gameRunning = setInterval(function () {
     $('.mud').css('background-position-x', index_road + 'px');
     $('.finish_line').css('left', finish_line_length + 'px');
     finish_line_length -= speed_road;
     index_road -= speed_road;
 
-    animals[0].setAction();
-    // animals.forEach(element => {
-    //     element.setAction();
-    // });
+    animals.forEach(element => {
+        element.setAction();
+    });
 }, 100);
 
 $(document).keypress(function (event) {

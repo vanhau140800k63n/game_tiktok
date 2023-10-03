@@ -1,0 +1,253 @@
+[
+    {
+        "giftId": 5827,
+        "repeatCount": 1,
+        "groupId": "1696351562270",
+        "monitorExtra": {
+            "send_gift_send_message_success_ms": 1696351562278,
+            "repeat_count": 1,
+            "room_id": 7285755112989986000,
+            "gift_id": 5827,
+            "send_gift_req_start_ms": 1696351561859,
+            "send_gift_profit_api_start_ms": 1696351561921,
+            "repeat_end": 0,
+            "from_user_id": 7141563473281336000,
+            "msg_id": 7285774318842580000,
+            "send_gift_profit_core_start_ms": 1696351561978,
+            "profitapi_message_dur": 357,
+            "gift_type": 1,
+            "log_id": "2023100316460069E5E5F968E5D55DE187",
+            "send_profitapi_dur": 62,
+            "anchor_id": 6557469787903066000,
+            "from_idc": "my",
+            "to_user_id": 6557469787903066000
+        },
+        "userId": "7141563473281336347",
+        "secUid": "MS4wLjABAAAABh3gHWdDUGsmgeTJkYdW8Zf1Dmudhf3wC70R0qXFXmHowDDUwEspLgosXogWk860",
+        "uniqueId": "uniekieuanh",
+        "nickname": "uniekieuanh",
+        "profilePictureUrl": "https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/faae3298cbd6a76c6c404bfb0814643a~c5_100x100.webp?x-expires=1696521600&x-signature=SJV5ZBDFbc01d9CEvsSxvmZ4smY%3D",
+        "followRole": 3,
+        "userBadges": [],
+        "userDetails": {
+            "createTime": "0",
+            "bioDescription": "",
+            "profilePictureUrls": [
+                "https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/faae3298cbd6a76c6c404bfb0814643a~tplv-tiktok-shrink:72:72.webp?x-expires=1696521600&x-signature=ilNilcO8%2BAnuQJ5vBMffhZlrXkw%3D",
+                "https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/faae3298cbd6a76c6c404bfb0814643a~c5_100x100.webp?x-expires=1696521600&x-signature=SJV5ZBDFbc01d9CEvsSxvmZ4smY%3D",
+                "https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/faae3298cbd6a76c6c404bfb0814643a~c5_100x100.jpeg?x-expires=1696521600&x-signature=%2BauVFi80nPPjlfvFjp6Ui%2BzDRzA%3D"
+            ]
+        },
+        "followInfo": {
+            "followingCount": 294,
+            "followerCount": 15,
+            "followStatus": 3,
+            "pushStatus": 0
+        },
+        "isModerator": false,
+        "isNewGifter": false,
+        "isSubscriber": false,
+        "topGifterRank": null,
+        "msgId": "7285774318842579720",
+        "createTime": "1696351562277",
+        "displayType": "webcast_aweme_gift_send_message",
+        "label": "{0:user} sent {1:gift} {2:string}",
+        "repeatEnd": false,
+        "gift": {
+            "gift_id": 5827,
+            "repeat_count": 1,
+            "repeat_end": 0,
+            "gift_type": 1
+        },
+        "describe": "Sent Ice Cream Cone",
+        "giftType": 1,
+        "diamondCount": 1,
+        "giftName": "Ice Cream Cone",
+        "giftPictureUrl": "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/968820bc85e274713c795a6aef3f7c67~tplv-obj.png",
+        "timestamp": 1696351562278,
+        "receiverUserId": "6557469787903066113",
+        "extendedGiftInfo": {
+            "can_put_in_gift_box": false,
+            "color_infos": [],
+            "combo": true,
+            "describe": "sent Ice Cream Cone",
+            "diamond_count": 1,
+            "duration": 1000,
+            "for_linkmic": true,
+            "gift_rank_recommend_info": "",
+            "gift_sub_type": 0,
+            "gift_vertical_scenarios": [
+                0
+            ],
+            "gold_effect": "",
+            "icon": {
+                "avg_color": "#D6D6D6",
+                "height": 0,
+                "image_type": 0,
+                "is_animated": false,
+                "open_web_url": "",
+                "uri": "webcast-va/968820bc85e274713c795a6aef3f7c67",
+                "url_list": [
+                    "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/968820bc85e274713c795a6aef3f7c67~tplv-obj.webp",
+                    "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/968820bc85e274713c795a6aef3f7c67~tplv-obj.webp"
+                ],
+                "width": 0
+            },
+            "id": 5827,
+            "image": {
+                "avg_color": "#A3A3CC",
+                "height": 0,
+                "image_type": 0,
+                "is_animated": false,
+                "open_web_url": "",
+                "uri": "webcast-va/968820bc85e274713c795a6aef3f7c67",
+                "url_list": [
+                    "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/968820bc85e274713c795a6aef3f7c67~tplv-obj.webp",
+                    "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/968820bc85e274713c795a6aef3f7c67~tplv-obj.webp"
+                ],
+                "width": 0
+            },
+            "is_box_gift": false,
+            "is_broadcast_gift": false,
+            "is_displayed_on_panel": true,
+            "is_effect_befview": false,
+            "is_random_gift": false,
+            "lock_info": {
+                "gift_level": 0,
+                "lock": false,
+                "lock_type": 0
+            },
+            "name": "Ice Cream Cone",
+            "primary_effect_id": 0,
+            "tracker_params": {},
+            "type": 1
+        }
+    },
+    {
+        "giftId": 5269,
+        "repeatCount": 10,
+        "repeatEnd": true,
+        "groupId": "1696351622361",
+        "monitorExtra": {
+            "gift_id": 5269,
+            "to_user_id": 6557469787903066000,
+            "repeat_end": 1,
+            "repeat_count": 10,
+            "room_id": 7285755112989986000,
+            "from_idc": "my",
+            "send_gift_profit_core_start_ms": 0,
+            "send_gift_send_message_success_ms": 1696351627796,
+            "gift_type": 1,
+            "from_user_id": 7068601296999794000,
+            "anchor_id": 6557469787903066000,
+            "log_id": "2023100316470386005D394CF6A745E719",
+            "msg_id": 7285774112289820000
+        },
+        "userId": "7068601296999793690",
+        "secUid": "MS4wLjABAAAABzN2aUEop_Aj0FctvSBY3xTeJd3PCApwNnmZSLX9Ftxf7Bb_4L8i4S_l0qJWEw6a",
+        "uniqueId": "xubidao",
+        "nickname": "Pink",
+        "profilePictureUrl": "https://p9-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/298d075863fb150a1cfceff8acf5061a.webp?x-expires=1696521600&x-signature=tbeZI2iPuwSXcsh0OptsBWJQ48U%3D",
+        "followRole": 0,
+        "userBadges": [
+            {
+                "badgeSceneType": 2,
+                "type": "pm_mt_live_ng_im",
+                "name": "New gifter"
+            }
+        ],
+        "userDetails": {
+            "createTime": "0",
+            "bioDescription": "",
+            "profilePictureUrls": [
+                "https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/298d075863fb150a1cfceff8acf5061a~tplv-tiktok-shrink:72:72.webp?x-expires=1696521600&x-signature=mp7Zy8VLIjeD2rbDMpf%2BujCOSmg%3D",
+                "https://p9-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/298d075863fb150a1cfceff8acf5061a.webp?x-expires=1696521600&x-signature=tbeZI2iPuwSXcsh0OptsBWJQ48U%3D",
+                "https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/298d075863fb150a1cfceff8acf5061a.webp?x-expires=1696521600&x-signature=mUtm8bUuaIu4SAgVJaipv%2Fs3nlk%3D",
+                "https://p9-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/298d075863fb150a1cfceff8acf5061a.jpeg?x-expires=1696521600&x-signature=xY01QXaUU0tiuv%2BTWf9Mf0Sksiw%3D"
+            ]
+        },
+        "followInfo": {
+            "followingCount": 11,
+            "followerCount": 27,
+            "followStatus": 0,
+            "pushStatus": 0
+        },
+        "isModerator": false,
+        "isNewGifter": true,
+        "isSubscriber": false,
+        "topGifterRank": null,
+        "msgId": "7285774112289819410",
+        "createTime": "1696351627796",
+        "displayType": "webcast_aweme_gift_send_message",
+        "label": "{0:user} sent {1:gift} {2:string}",
+        "gift": {
+            "gift_id": 5269,
+            "repeat_count": 10,
+            "repeat_end": 1,
+            "gift_type": 1
+        },
+        "describe": "Sent TikTok",
+        "giftType": 1,
+        "diamondCount": 1,
+        "giftName": "TikTok",
+        "giftPictureUrl": "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.png",
+        "timestamp": 1696351627796,
+        "receiverUserId": "6557469787903066113",
+        "extendedGiftInfo": {
+            "can_put_in_gift_box": false,
+            "color_infos": [],
+            "combo": true,
+            "describe": "sent TikTok",
+            "diamond_count": 1,
+            "duration": 0,
+            "for_linkmic": true,
+            "gift_rank_recommend_info": "",
+            "gift_sub_type": 0,
+            "gift_vertical_scenarios": [
+                0
+            ],
+            "gold_effect": "",
+            "icon": {
+                "avg_color": "#FAE6DC",
+                "height": 0,
+                "image_type": 0,
+                "is_animated": false,
+                "open_web_url": "",
+                "uri": "webcast-va/802a21ae29f9fae5abe3693de9f874bd",
+                "url_list": [
+                    "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp",
+                    "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp"
+                ],
+                "width": 0
+            },
+            "id": 5269,
+            "image": {
+                "avg_color": "#FADCDC",
+                "height": 0,
+                "image_type": 0,
+                "is_animated": false,
+                "open_web_url": "",
+                "uri": "webcast-va/802a21ae29f9fae5abe3693de9f874bd",
+                "url_list": [
+                    "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp",
+                    "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp"
+                ],
+                "width": 0
+            },
+            "is_box_gift": false,
+            "is_broadcast_gift": false,
+            "is_displayed_on_panel": true,
+            "is_effect_befview": false,
+            "is_random_gift": false,
+            "lock_info": {
+                "gift_level": 0,
+                "lock": false,
+                "lock_type": 0
+            },
+            "name": "TikTok",
+            "primary_effect_id": 0,
+            "tracker_params": {},
+            "type": 1
+        }
+    }
+]
