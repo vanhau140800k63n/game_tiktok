@@ -1,20 +1,71 @@
-var liveId = 'tunlaembe';
+var liveId = 'couyenag';
+
+function Animal(id, x, y, person) {
+    this.element = $('#animal_' + id);
+    this.speed = 10;
+    this.x = x;
+    this.y = y;
+    this.author = person;
+
+    this.run = function () {
+        var animal = this;
+        animal.element.css('top', animal.y + 'px');
+        animal.element.css('left', (this.x - animal.element.width()) + 'px');
+        animal.element.append('<div class="name">' + this.author.name + '</div>')
+    }
+
+    this.setAction = function (key) {
+        var animal = this;
+        if (animal.x + 50 > finish_line_length) {
+            clearInterval(gameRunning)
+        }
+        if (animal.speed - speed_road > 0) {
+            animal.x += (animal.speed - speed_road);
+            animal.element.css('left', (animal.x - animal.element.width()) + 'px');
+        }
+    }
+}
+
+class Person {
+    name;
+    id;
+
+    constructor(name, id) {
+        this.name = name;
+        this.id = id;
+    }
+}
+
+var animals = [];
+var people = [];
+var people_id = [];
+
+setInterval(function () {
+    if (people[0] != undefined) {
+        var person = people.shift();
+        $('.mud').append('<div class="animal_gif" id="animal_' + person.id + '"><img  src="animal_img/animal' + (1 + Math.floor(Math.random() * 20)) + '.gif"> </div>');
+        var animal = new Animal(person.id, 500 + Math.floor(Math.random() * 501), 30 * (1 + Math.floor(Math.random() * 10)), person);
+        $('#_person_' + person.id).remove();
+        animals.push(animal);
+        animal.run();
+    }
+}, 10000)
 
 
-// setInterval(function () {
-//     $('.person').each(function () {
-//         if ($(this).css('display') != 'none') {
-//             var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-//             var top = $(this).css('top').match(/\d/g);
-//             top = top.join("");
-//             var left = $(this).css('left').match(/\d/g);
-//             left = left.join("");
+var speed_road = 10;
+var index_road = 0
+var finish_line_length = 3000;
 
-//             $(this).css('top', (Number(top) + Number(plusOrMinus * 5)) + 'px');
-//             $(this).css('left', (Number(left) + Number(plusOrMinus * 5)) + 'px');
-//         }
-//     })
-// }, 200)
+var actions = [];
+
+$(document).keypress(function (event) {
+    animal_id = parseInt(event.key);
+    animals[animal_id - 1].speed += 1;
+});
+
+for (i = 1; i <= 20; ++i) {
+    $('.list_pet').append('<div class="pet_show"><img src="animal_img/animal' + i + '.gif"><div class="_index">' + i + '</div></div>');
+}
 class TikTokIOConnection {
     constructor(backendUrl) {
         this.socket = io(backendUrl);
@@ -24,7 +75,6 @@ class TikTokIOConnection {
         this.socket.on('connect', () => {
             console.info("Socket connected!");
 
-            // Reconnect to streamer if uniqueId already set
             if (this.uniqueId) {
                 this.setUniqueId();
             }
@@ -165,7 +215,14 @@ function addChatItem(color, data, text, summarize) {
     var generateUsername = generateUsernameLink(data);
 
     if (text == 'joined') {
-        $('.noti').html(generateNickname(data));
+        var name = generateNickname(data);
+        var id = generateUsernameLink(data);
+        $('.noti').html(name + ' đã tham gia vào sảnh chờ');
+        if (!people_id.includes(id)) {
+            people_id.push(id);
+            people.push(new Person(name, id));
+            $('.waiting_place ._list').append('<div class="_person" id="_person_' + id + '">' + name + '</div>')
+        }
     } else if (text == 'chat') {
 
     }
@@ -218,16 +275,16 @@ function addChatItem(color, data, text, summarize) {
 /**
  * Add a new gift to the gift container
  */
-    function addGiftItem(data) {
-        let container = location.href.includes('obs.html') ? $('.eventcontainer') : $('.giftcontainer');
+function addGiftItem(data) {
+    let container = location.href.includes('obs.html') ? $('.eventcontainer') : $('.giftcontainer');
 
-        if (container.find('div').length > 200) {
-            container.find('div').slice(0, 100).remove();
-        }
+    if (container.find('div').length > 200) {
+        container.find('div').slice(0, 100).remove();
+    }
 
-        let streakId = data.userId.toString() + '_' + data.giftId;
+    let streakId = data.userId.toString() + '_' + data.giftId;
 
-        let html = `
+    let html = `
     <div data-streakid=${isPendingStreak(data) ? streakId : ''}>
         <img class="miniprofilepicture" src="${data.profilePictureUrl}">
         <span>
@@ -248,19 +305,19 @@ function addChatItem(color, data, text, summarize) {
     </div>
 `;
 
-        let existingStreakItem = container.find(`[data-streakid='${streakId}']`);
+    let existingStreakItem = container.find(`[data-streakid='${streakId}']`);
 
-        if (existingStreakItem.length) {
-            existingStreakItem.replaceWith(html);
-        } else {
-            container.append(html);
-        }
-
-        container.stop();
-        container.animate({
-            scrollTop: container[0].scrollHeight
-        }, 800);
+    if (existingStreakItem.length) {
+        existingStreakItem.replaceWith(html);
+    } else {
+        container.append(html);
     }
+
+    container.stop();
+    container.animate({
+        scrollTop: container[0].scrollHeight
+    }, 800);
+}
 
 
 // viewer stats
