@@ -161,11 +161,34 @@ body {
     justify-content: space-between;
 }
 
-.selector {
+.pet_selector .effect_show {
+    height: 120px;
+    width: calc(100%/7 - 20px);
+    background-color: #fff;
+    position: relative;
+    border-radius: 5px;
+}
+
+.pet_selector .effect_show img{
+    width: 100%;
+}
+
+.pet_selector ._index {
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+    border-radius: 5px;
+    background: #000;
+    font-weight: 600;
+    font-size: 13px;
+    color: #fff;
+}
+
+/* .selector {
     height: 120px;
     width: calc(20% - 20px);
     background-color: #fff;
-}
+} */
 
 .waiting_place {
     position: absolute;

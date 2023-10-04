@@ -76,6 +76,10 @@ $(document).keypress(function (event) {
 for (i = 1; i <= 20; ++i) {
     $('.list_pet').append('<div class="pet_show"><img src="animal_img/animal' + i + '.gif"><div class="_index">' + i + '</div></div>');
 }
+
+for (i = 1; i <= 7; ++i) {
+    $('.pet_selector').append('<div class="effect_show"><img src="effect/attack' + i + '.gif"><div class="_index"> Chat "' + i + '" để sử dụng</div></div>');
+}
 class TikTokIOConnection {
     constructor(backendUrl) {
         this.socket = io(backendUrl);
