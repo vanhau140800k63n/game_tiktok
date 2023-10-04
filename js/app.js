@@ -1,5 +1,6 @@
 var liveId = 'doquynh00';
 var timeoutList = [];
+var runIntervalList = [];
 
 function Animal(id, x, y, person) {
     this.element = $('#animal_' + id);
@@ -17,11 +18,20 @@ function Animal(id, x, y, person) {
 
     this.setAction = function (key) {
         var animal = this;
+        var left = parseInt(animal.element.css('left').replace(/[A-Za-z$-]/g, ""));
         animal.element.find('._effect').remove();
         clearTimeout(timeoutList[this.id]);
+        clearInterval(runIntervalList[this.id]);
         animal.element.append('<img class="_effect" src="effect/attack' + key + '.gif">');
+
+        runIntervalList[this.id] = setInterval(function () {
+            left += 1;
+            animal.element.css('left', left + 'px');
+        }, 100)
+
         timeoutList[this.id] = setTimeout(function () {
             animal.element.find('._effect').remove();
+            clearInterval(runIntervalList[this.id]);
         }, 5000)
     }
 }
