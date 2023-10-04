@@ -41,7 +41,7 @@ var finish_line_length = 3000;
 var actions = [];
 
 var gameRunning = setInterval(function () {
-    $('.mud').css('background-position-x', index_road + 'px');
+    // $('.mud').css('background-position-x', index_road + 'px');
     $('.finish_line').css('left', finish_line_length + 'px');
     finish_line_length -= speed_road;
     index_road -= speed_road;

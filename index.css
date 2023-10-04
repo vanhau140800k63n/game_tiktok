@@ -34,6 +34,32 @@ body {
     height: 50vh;
     background-position-x: 0;
     background-size: 30%;
+    animation: road steps(1) 0.25s infinite;
+}
+
+
+@keyframes road {
+
+	0%,
+	100% {
+		background-position: 0px 0px;
+	}
+
+	20% {
+		background-position: -5px 0;
+	}
+
+	40% {
+		background-position: -10px 0;
+	}
+
+    69% {
+		background-position: -15px 0;
+	}
+
+    80% {
+		background-position: -20px 0;
+	}
 }
 
 .finish_line {
