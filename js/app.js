@@ -1,6 +1,8 @@
-var liveId = 'doquynh00';
+var liveId = 'yennapun';
 var timeoutList = [];
 var runIntervalList = [];
+var bodyWidth = $('body').width();
+var effect = false;
 
 function Animal(id, x, y, person) {
     this.element = $('#animal_' + id);
@@ -29,6 +31,20 @@ function Animal(id, x, y, person) {
             animal.element.css('left', left + 'px');
         }, 100)
 
+        if (effect == false) {
+            effect = true;
+            animal.element.css('z-index', 100);
+            animal.element.find('._effect').css('z-index', 100);
+            $('.cover').show();
+
+            setTimeout(function () {
+                animal.element.css('z-index', 10);
+                animal.element.find('._effect').css('z-index', 10);
+                $('.cover').hide();
+                effect = false;
+            }, 1000)
+        }
+
         timeoutList[this.id] = setTimeout(function () {
             animal.element.find('._effect').remove();
             clearInterval(runIntervalList[this.id]);
@@ -54,23 +70,25 @@ setInterval(function () {
     if (people[0] != undefined) {
         var person = people.shift();
         $('.mud').append('<div class="animal_gif" id="animal_' + person.id + '"><img class="animal_img" src="animal_img/animal' + (1 + Math.floor(Math.random() * 20)) + '.gif"> </div>');
-        var animal = new Animal(person.id, 500 + Math.floor(Math.random() * 501), 30 * (1 + Math.floor(Math.random() * 10)), person);
+        var animal = new Animal(person.id, 500 + Math.floor(Math.random() * 1001), 30 * (1 + Math.floor(Math.random() * 10)), person);
         $('#_person_' + person.id).remove();
         animals.push(animal);
         animal.run();
     }
 }, 10000)
 
-
 var speed_road = 10;
 var index_road = 0
 var finish_line_length = 3000;
 
-var actions = [];
+var actions = [1, 2, 3, 4, 5, 6, 7];
 
 $(document).keypress(function (event) {
-    action_id = parseInt(event.key);
-    animals[Math.floor(Math.random() * animals.length)].setAction(action_id);
+    var action_id = parseInt(event.key);
+    if (actions.includes(action_id)) {
+        animals[Math.floor(Math.random() * animals.length)].setAction(action_id);
+    }
+
 });
 
 for (i = 1; i <= 20; ++i) {
@@ -138,7 +156,6 @@ class TikTokIOConnection {
 
 let backendUrl = location.protocol === 'file:' ? "https://tiktok-chat-reader.zerody.one/" : undefined;
 let connection = new TikTokIOConnection(backendUrl);
-let mainConnection = new TikTokIOConnection(backendUrl);
 
 // Counter
 let viewerCount = 0;
@@ -150,21 +167,8 @@ if (!window.settings) window.settings = {};
 
 $(document).ready(() => {
     connect();
-    mainConnect();
     // if (window.settings.username) connect();
 })
-
-function mainConnect() {
-    let uniqueId = 'devsnevn';
-    if (uniqueId !== '') {
-        mainConnection.connect(uniqueId, {
-            enableExtendedGiftInfo: true
-        }).then(state => {
-        }).catch(errorMessage => {
-        })
-    } else {
-    }
-}
 
 function connect() {
     let uniqueId = liveId;
@@ -236,7 +240,25 @@ function addChatItem(color, data, text, summarize) {
             $('.waiting_place ._list').append('<div class="_person" id="_person_' + id + '">' + name + '</div>')
         }
     } else if (text == 'chat') {
+        var action_id = parseInt(sanitize(data.comment));
+        if (actions.includes(action_id)) {
+            var id = generateUsernameLink(data);
+            var result = people.find(item => item.id === id);
+            if(result != undefined) {
+                result.setAction(action_id);
+            }
+        } else {
+            var chat = $('<div/>');
+            chat.attr('class', 'text_chat');
+            chat.html(sanitize(data.comment));
+            chat.css('top', Math.floor(Math.random() * 80) + 'px');
+            chat.css('left', Math.floor(Math.random() * (bodyWidth - 200)) + 'px');
+            $('.audiences').append(chat);
 
+            setTimeout(function () {
+                chat.remove();
+            }, 10000)
+        }
     }
 
     // if (text == 'joined') {
@@ -355,31 +377,10 @@ connection.on('chat', (msg) => {
     addChatItem('', msg, 'chat');
 })
 
-let mainJoinMsgDelay = 0;
-mainConnection.on('member', (msg) => {
-    if (window.settings.showJoins === "0") return;
-
-    let addDelay = 250;
-    if (mainJoinMsgDelay > 500) addDelay = 100;
-    if (mainJoinMsgDelay > 1000) addDelay = 0;
-
-    mainJoinMsgDelay += addDelay;
-
-    setTimeout(() => {
-        mainJoinMsgDelay -= addDelay;
-        addChatItem('#21b2c2', msg, 'joined', true);
-    }, mainJoinMsgDelay);
-})
-
-// New chat comment received
-mainConnection.on('chat', (msg) => {
-    if (window.settings.showChats === "0") return;
-    addChatItem('', msg, 'chat');
-})
 
 // New gift received
 connection.on('gift', (data) => {
-    console.log(data);
+    // console.log(data);
     // if (!isPendingStreak(data) && data.diamondCount > 0) {
     //     diamondsCount += (data.diamondCount * data.repeatCount);
     //     updateRoomStats();
