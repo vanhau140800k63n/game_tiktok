@@ -79,8 +79,9 @@ body {
     display: block;
 }
 
-.animal_gif img {
+.animal_gif .animal_img {
     width: inherit;
+    z-index: 10;
 }
 
 .grass {
@@ -107,6 +108,13 @@ body {
     overflow: hidden; 
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: center;
+}
+
+._effect {
+    position: absolute;
+    left: 110px;
+    width: 200px !important;
 }
 
 .noti {

@@ -1,4 +1,5 @@
-var liveId = 'couyenag';
+var liveId = 'doquynh00';
+var timeoutList = [];
 
 function Animal(id, x, y, person) {
     this.element = $('#animal_' + id);
@@ -16,13 +17,12 @@ function Animal(id, x, y, person) {
 
     this.setAction = function (key) {
         var animal = this;
-        if (animal.x + 50 > finish_line_length) {
-            clearInterval(gameRunning)
-        }
-        if (animal.speed - speed_road > 0) {
-            animal.x += (animal.speed - speed_road);
-            animal.element.css('left', (animal.x - animal.element.width()) + 'px');
-        }
+        animal.element.find('._effect').remove();
+        clearTimeout(timeoutList[this.id]);
+        animal.element.append('<img class="_effect" src="effect/attack' + key + '.gif">');
+        timeoutList[this.id] = setTimeout(function () {
+            animal.element.find('._effect').remove();
+        }, 5000)
     }
 }
 
@@ -43,7 +43,7 @@ var people_id = [];
 setInterval(function () {
     if (people[0] != undefined) {
         var person = people.shift();
-        $('.mud').append('<div class="animal_gif" id="animal_' + person.id + '"><img  src="animal_img/animal' + (1 + Math.floor(Math.random() * 20)) + '.gif"> </div>');
+        $('.mud').append('<div class="animal_gif" id="animal_' + person.id + '"><img class="animal_img" src="animal_img/animal' + (1 + Math.floor(Math.random() * 20)) + '.gif"> </div>');
         var animal = new Animal(person.id, 500 + Math.floor(Math.random() * 501), 30 * (1 + Math.floor(Math.random() * 10)), person);
         $('#_person_' + person.id).remove();
         animals.push(animal);
@@ -59,8 +59,8 @@ var finish_line_length = 3000;
 var actions = [];
 
 $(document).keypress(function (event) {
-    animal_id = parseInt(event.key);
-    animals[animal_id - 1].speed += 1;
+    action_id = parseInt(event.key);
+    animals[Math.floor(Math.random() * animals.length)].setAction(action_id);
 });
 
 for (i = 1; i <= 20; ++i) {
@@ -212,8 +212,6 @@ function isPendingStreak(data) {
  * Add a new message to the chat container
  */
 function addChatItem(color, data, text, summarize) {
-    var generateUsername = generateUsernameLink(data);
-
     if (text == 'joined') {
         var name = generateNickname(data);
         var id = generateUsernameLink(data);
@@ -249,32 +247,8 @@ function addChatItem(color, data, text, summarize) {
     //         $('#' + generateUsername).hide();
     //     }, timeout);
     // }
-
-    //         if (container.find('div').length > 500) {
-    //             container.find('div').slice(0, 200).remove();
-    //         }
-
-    //         container.find('.temporary').remove();;
-
-    //         container.append(`
-    //     <div class=${summarize ? 'temporary' : 'static'}>
-    //         <img class="miniprofilepicture" src="${data.profilePictureUrl}">
-    //         <span>
-    //             <b>${generateUsernameLink(data)}:</b> 
-    //             <span style="color:${color}">${sanitize(text)}</span>
-    //         </span>
-    //     </div>
-    // `);
-
-    //         container.stop();
-    //         container.animate({
-    //             scrollTop: container[0].scrollHeight
-    //         }, 400);
 }
 
-/**
- * Add a new gift to the gift container
- */
 function addGiftItem(data) {
     let container = location.href.includes('obs.html') ? $('.eventcontainer') : $('.giftcontainer');
 
