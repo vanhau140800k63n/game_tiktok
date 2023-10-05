@@ -1,4 +1,4 @@
-var liveId = 'yennapun';
+var liveId = 'devsnevn';
 var timeoutList = [];
 var runIntervalList = [];
 var bodyWidth = $('body').width();
@@ -9,24 +9,25 @@ function Animal(id, x, y, person) {
     this.speed = 10;
     this.x = x;
     this.y = y;
+    this.id = id;
     this.author = person;
 
     this.run = function () {
         var animal = this;
         animal.element.css('top', animal.y + 'px');
-        animal.element.css('left', (this.x - animal.element.width()) + 'px');
-        animal.element.append('<div class="name">' + this.author.name + '</div>')
+        animal.element.css('left', (animal.x - animal.element.width()) + 'px');
+        animal.element.append('<div class="name">' + animal.author.name + '</div>')
     }
 
     this.setAction = function (key) {
         var animal = this;
         var left = parseInt(animal.element.css('left').replace(/[A-Za-z$-]/g, ""));
         animal.element.find('._effect').remove();
-        clearTimeout(timeoutList[this.id]);
-        clearInterval(runIntervalList[this.id]);
+        clearTimeout(timeoutList[animal.id]);
+        clearInterval(runIntervalList[animal.id]);
         animal.element.append('<img class="_effect" src="effect/attack' + key + '.gif">');
 
-        runIntervalList[this.id] = setInterval(function () {
+        runIntervalList[animal.id] = setInterval(function () {
             left += 1;
             animal.element.css('left', left + 'px');
         }, 100)
@@ -45,9 +46,10 @@ function Animal(id, x, y, person) {
             }, 1000)
         }
 
-        timeoutList[this.id] = setTimeout(function () {
+        timeoutList[animal.id] = setTimeout(function () {
             animal.element.find('._effect').remove();
-            clearInterval(runIntervalList[this.id]);
+            console.log(animal.id);
+            clearInterval(runIntervalList[animal.id]);
         }, 5000)
     }
 }
@@ -76,6 +78,13 @@ setInterval(function () {
         animal.run();
     }
 }, 10000)
+
+// setTimeout(function () {
+//     var result = people.find(item => item.id == '_nguyenn_tu');
+//     console.log(result);
+//     console.log(people);
+// }, 10000)
+
 
 var speed_road = 10;
 var index_road = 0
@@ -242,11 +251,12 @@ function addChatItem(color, data, text, summarize) {
     } else if (text == 'chat') {
         var action_id = parseInt(sanitize(data.comment));
         if (actions.includes(action_id)) {
-            var id = generateUsernameLink(data);
-            var result = people.find(item => item.id === id);
-            if(result != undefined) {
-                result.setAction(action_id);
-            }
+            animals[Math.floor(Math.random() * animals.length)].setAction(action_id);
+            // var id = generateUsernameLink(data);
+            // var result = animals.find(item => item.id == id);
+            // if (result != undefined && $('#animal_' + id).length > 0) {
+            //     result.setAction(action_id);
+            // }
         } else {
             var chat = $('<div/>');
             chat.attr('class', 'text_chat');
